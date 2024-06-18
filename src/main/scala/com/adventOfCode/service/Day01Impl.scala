@@ -2,17 +2,6 @@ package com.adventOfCode.service
 
 object Day01Impl {
 
-  val numberNames: Array[String] = Array(
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine"
-  )
 
   def filterDigits(value: String): String = {
     value.filter(x => x.isDigit)
@@ -39,17 +28,26 @@ object Day01Impl {
     )
   }
 
+  def replaceIteratorValues(inputIterator: Iterator[String]): Iterator[String] = {
+    inputIterator.map(filterDigitsWithNames)
+  }
+
   def filterDigitsWithNames(value: String): String = {
     value
-      .replaceAll("one", "1")
-      .replaceAll("two", "2")
-      .replaceAll("three", "3")
-      .replaceAll("four", "4")
-      .replaceAll("five", "5")
-      .replaceAll("six", "6")
-      .replaceAll("seven", "7")
-      .replaceAll("eight", "8")
-      .replaceAll("nine", "9")
+      .replaceAll("one", replaceNumberWithDigit("one"))
+      .replaceAll("two", replaceNumberWithDigit("two"))
+      .replaceAll("three", replaceNumberWithDigit("three"))
+      .replaceAll("four", replaceNumberWithDigit("four"))
+      .replaceAll("five", replaceNumberWithDigit("five"))
+      .replaceAll("six", replaceNumberWithDigit("six"))
+      .replaceAll("seven", replaceNumberWithDigit("seven"))
+      .replaceAll("eight", replaceNumberWithDigit("eight"))
+      .replaceAll("nine", replaceNumberWithDigit("nine"))
+  }
+
+  def replaceNumberWithDigit(number: String): String = {
+    val firstLetter = number.charAt(0)
+    f"${firstLetter}${castNameToString(number)}$number"
   }
 
   def castNameToString(number: String): Int = {

@@ -2,6 +2,7 @@ package com.adventOfCode.model.day
 
 import com.adventOfCode.model.CalculatePuzzleAnswer
 import com.adventOfCode.service.Day01Impl.sumElements
+import com.adventOfCode.service.Day01Impl.replaceIteratorValues
 
 object Day01Trebuchet extends CalculatePuzzleAnswer {
 
@@ -62,6 +63,9 @@ object Day01Trebuchet extends CalculatePuzzleAnswer {
     * @param input
     * @return
     */
-  override def calculate_part_two(input: Iterator[String]): Option[Int] = ???
+  override def calculate_part_two(input: Iterator[String]): Option[Int] = {
+    val newValues: Iterator[String] = replaceIteratorValues(inputIterator = input)
+    Some(sumElements(newValues))
+  }
 
 }

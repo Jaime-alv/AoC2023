@@ -12,13 +12,13 @@ import java.io.FileNotFoundException
 object Main extends LazyLogging {
   def main(args: Array[String]): Unit = {
 
-    val day1 = new TargetDay(2)
+    val day1 = new TargetDay(1)
     val lines = day1.readFile()
     val realLines: Iterator[String] = lines.get
     val puzzle = Driver.getPuzzle(day1.target())
     // val targetDay = new Day01Trebuchet
-    logger.info(puzzle.calculate_part_one(realLines).toString())
-    logger.info(puzzle.calculate_part_two(realLines).toString())
+    logger.info(puzzle.calculate_part_one(realLines.toArray.clone().toIterator).toString())
+    logger.info(puzzle.calculate_part_two(realLines).get.toString())
   }
 }
 
