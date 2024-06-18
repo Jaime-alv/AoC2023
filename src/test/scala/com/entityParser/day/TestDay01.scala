@@ -39,8 +39,7 @@ class TestDay01 extends AnyFunSuite {
   }
 
   test("Reduce sum") {
-    val local: Iterator[String] = examplePartOne.clone().toIterator
-    assert(Day01Trebuchet.calculate_part_one(local) == 142)
+    assert(Day01Trebuchet.calculate_part_one(examplePartOne) == 142)
   }
 
   test("sum elements") {
@@ -66,8 +65,7 @@ class TestDay01 extends AnyFunSuite {
   }
 
   test("part 2 solution") {
-    val values: Iterator[String] = examplePartTwo.clone().toIterator
-    val newValues = Day01Impl.replaceIteratorValues(values)
+    val newValues = Day01Impl.replaceIteratorValues(examplePartTwo)
     assert(Day01Impl.sumElements(newValues).equals(281))
   }
 }

@@ -18,7 +18,7 @@ class TargetDay(day: Int, year: Int, mainFolder: String, subFolder: String, file
     this(day = day, year = 2023, mainFolder = "./resources", subFolder = "day", fileName = "input")
   }
 
-  def target(): Int = {
+  def day(): Int = {
     this._target
   }
 
@@ -46,9 +46,9 @@ class TargetDay(day: Int, year: Int, mainFolder: String, subFolder: String, file
     splittedStringDay
   }
 
-  def readFile(): Option[Iterator[String]] = {
+  def readFile(): Option[Array[String]] = {
     try {
-      val lines = scala.io.Source.fromFile(getFilePath()).getLines()
+      val lines = scala.io.Source.fromFile(getFilePath()).getLines().toArray
       Some(lines)
     } catch {
       case ex: FileNotFoundException => None

@@ -28,8 +28,8 @@ object Day01Impl {
     )
   }
 
-  def replaceIteratorValues(inputIterator: Iterator[String]): Iterator[String] = {
-    inputIterator.map(filterDigitsWithNames)
+  def replaceIteratorValues(inputIterator: Array[String]): Iterator[String] = {
+    inputIterator.map(filterDigitsWithNames).toIterator
   }
 
   def filterDigitsWithNames(value: String): String = {

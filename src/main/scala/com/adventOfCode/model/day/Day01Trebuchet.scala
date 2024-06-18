@@ -42,8 +42,8 @@ object Day01Trebuchet extends CalculatePuzzleAnswer {
     * Consider your entire calibration document. What is the sum of all of the calibration values?
     */
 
-  override def calculate_part_one(input: Iterator[String]): Int = {
-    sumElements(input)
+  override def calculate_part_one(input: Array[String]): Int = {
+    sumElements(input.toIterator)
   }
 
   /** --- Part Two ---
@@ -63,7 +63,7 @@ object Day01Trebuchet extends CalculatePuzzleAnswer {
     * @param input
     * @return
     */
-  override def calculate_part_two(input: Iterator[String]): Option[Int] = {
+  override def calculate_part_two(input: Array[String]): Option[Int] = {
     val newValues: Iterator[String] = replaceIteratorValues(inputIterator = input)
     Some(sumElements(newValues))
   }
