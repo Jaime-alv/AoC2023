@@ -1,0 +1,163 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>proyectos.scala</groupId>
+    <artifactId>adventOfCode</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <name>"Advent of Code 2023"</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <scala.version>2.13.10</scala.version>
+        <scala.binary.version>2.13</scala.binary.version>
+        <java.version>1.8</java.version>
+        <scalatest.version>3.2.15</scalatest.version>
+        <mvn.plugin>4.8.0</mvn.plugin>
+        <mvn.compiler>3.10.1</mvn.compiler>
+        <mvn.assembly>3.4.2</mvn.assembly>
+        <logging.version>3.9.5</logging.version>
+        <logback.classic>1.2.10</logback.classic>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>apache-repo</id>
+            <name>Apache Repository</name>
+            <url>https://repository.apache.org/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Scala -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.binary.version}</artifactId>
+            <version>${scalatest.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging_${scala.binary.version}</artifactId>
+            <version>${logging.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.classic}</version>
+            <!-- <scope>compile</scope> -->
+        </dependency>        
+        
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <plugins>
+            <!-- Build jar file with all dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${mvn.assembly}</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.entityParser.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+                <version>${mvn.compiler}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <configuration>
+                  <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                  <junitxml>.</junitxml>
+                  <filereports>WDF TestSuite.txt</filereports>
+                </configuration>
+                <executions>
+                  <execution>
+                    <id>test</id>
+                    <goals>
+                      <goal>test</goal>
+                    </goals>
+                  </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>${mvn.plugin}</version>
+                <executions>
+                    <execution>
+                        <?m2e execute onConfiguration?>
+                        <!-- <?m2e execute onConfiguration,onIncremental?> -->
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <args>
+                        <!-- work-around for https://issues.scala-lang.org/browse/SI-8358 -->
+                        <arg>-nobootcp</arg>
+                    </args>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <organization>
+        <name>PUE DATA SL</name>
+        <url>https://www.pue.es/</url>
+      </organization>
+
+    <developers>
+        <developer>
+            <id>jaime.alvarez</id>
+            <name>Jaime Álvarez</name>
+            <email>jaime.alvarez@pue.es</email>
+            <organization>PUE</organization>
+            <timezone>Europe/Madrid</timezone>
+        </developer>
+    </developers>
+</project>
