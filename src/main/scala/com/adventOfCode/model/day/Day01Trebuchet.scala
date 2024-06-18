@@ -3,8 +3,11 @@ package com.adventOfCode.model.day
 import com.adventOfCode.model.CalculatePuzzleAnswer
 import com.adventOfCode.service.Day01Impl.sumElements
 import com.adventOfCode.service.Day01Impl.replaceIteratorValues
+import com.adventOfCode.model.RenderMethods
+import com.adventOfCode.configuration.Constants
 
-object Day01Trebuchet extends CalculatePuzzleAnswer {
+object Day01Trebuchet extends RenderMethods {
+
 
   /** --- Day 1: Trebuchet?! --- Something is wrong with global snow production, and you've been
     * selected to take a look. The Elves have even given you a map; on it, they've used stars to

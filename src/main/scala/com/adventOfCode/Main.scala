@@ -16,9 +16,8 @@ object Main extends LazyLogging {
     val lines = targetDay.readFile()
     val realLines: Array[String] = lines.get
     val puzzle = Driver.getPuzzleSolution(targetDay.day)
-    // val targetDay = new Day01Trebuchet
-    logger.info(puzzle.calculate_part_one(realLines).toString())
-    logger.info(puzzle.calculate_part_two(realLines).get.toString())
+    logger.info(puzzle.renderPartOne(realLines))
+    logger.info(puzzle.renderPartTwo(realLines))
   }
 }
 
