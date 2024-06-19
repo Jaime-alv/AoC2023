@@ -45,8 +45,8 @@ object Day01Trebuchet extends RenderMethods {
     * Consider your entire calibration document. What is the sum of all of the calibration values?
     */
 
-  override def calculate_part_one(input: Array[String]): Int = {
-    sumElements(input.toIterator)
+  override def calculate_part_one(input: Array[String]): Option[Int] = {
+    Some(sumElements(input.toIterator))
   }
 
   /** --- Part Two ---
