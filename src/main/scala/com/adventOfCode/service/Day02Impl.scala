@@ -59,4 +59,18 @@ object Day02Impl {
   def sumRounds(inputValue: Array[String]): Int = {
     addRounds(splitInputInRounds(inputValue))
   }
+
+  def computeRoundPower(round: Round): Int = {
+    val maxRed   = round.getMaxValueForColour(enum.Colour.red)
+    val maxBlue  = round.getMaxValueForColour(enum.Colour.blue)
+    val maxGreen = round.getMaxValueForColour(enum.Colour.green)
+    maxRed * maxBlue * maxGreen
+  }
+
+  def computeGamePower(inputValue: Array[String]): Int = {
+    inputValue
+      .map(explodeGameSet)
+      .map(computeRoundPower)
+      .reduce(_ + _)
+  }
 }

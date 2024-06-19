@@ -99,4 +99,12 @@ class TestDay02 extends AnyFunSuite {
   test("Compute example rounds") {
     assertResult(8)(Day02Impl.sumRounds(gameRoundExample))
   }
+
+  test("Compute round power") {
+    assertResult(48)(Day02Impl.computeRoundPower(round = roundGame))
+  }
+
+  test("Compute Full Round power for example") {
+    assertResult(2286)(Day02Impl.computeGamePower(gameRoundExample))
+  }
 }
