@@ -2,7 +2,6 @@ package com.adventOfCode
 
 import com.typesafe.scalalogging.Logger
 import com.typesafe.scalalogging.LazyLogging
-import com.adventOfCode.configuration.Settings
 import com.adventOfCode.configuration.TargetDay
 import com.adventOfCode.model.day.Day01Trebuchet
 import com.adventOfCode.controller.Driver

@@ -39,7 +39,7 @@ class TestDay01 extends AnyFunSuite {
   }
 
   test("Reduce sum") {
-    assert(Day01Trebuchet.calculate_part_one(examplePartOne) == 142)
+    assert(Day01Trebuchet.calculate_part_one(examplePartOne) == Some(142))
   }
 
   test("sum elements") {
