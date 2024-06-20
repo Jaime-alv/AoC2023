@@ -1,8 +1,9 @@
 package com.adventOfCode.service
 
-import com.adventOfCode.enum.Colour.Colour
+import com.adventOfCode.model.Colour.Colour
 import com.adventOfCode.enum
 import com.adventOfCode.model.Round
+import com.adventOfCode.model.Colour
 
 object Day02Impl {
 
@@ -19,9 +20,9 @@ object Day02Impl {
     val explodeSet: Array[String] = gameSet.split(":")
     val gameRound: Option[Int]    = getRoundNumber(explodeSet.head)
     val colourSet: Array[String]  = explodeSetsIntoColours(explodeSet.last)
-    val redColours: Array[Int]    = filterByColour(colourSet, enum.Colour.red)
-    val blueColours: Array[Int]   = filterByColour(colourSet, enum.Colour.blue)
-    val greenColours: Array[Int]  = filterByColour(colourSet, enum.Colour.green)
+    val redColours: Array[Int]    = filterByColour(colourSet, Colour.red)
+    val blueColours: Array[Int]   = filterByColour(colourSet, Colour.blue)
+    val greenColours: Array[Int]  = filterByColour(colourSet, Colour.green)
     val game = new Round(gameRound.get, red = redColours, blue = blueColours, green = greenColours)
     game
   }
@@ -43,9 +44,9 @@ object Day02Impl {
   }
 
   def gameRoundIsBelowLimits(round: Round): Boolean = {
-    round.getMaxValueForColour(colour = enum.Colour.red) <= maxRed && round.getMaxValueForColour(
-      enum.Colour.blue
-    ) <= maxBlue && round.getMaxValueForColour(enum.Colour.green) <= maxGreen
+    round.getMaxValueForColour(colour = Colour.red) <= maxRed && round.getMaxValueForColour(
+      Colour.blue
+    ) <= maxBlue && round.getMaxValueForColour(Colour.green) <= maxGreen
   }
 
   def addRounds(games: Iterator[Round]): Int = {
@@ -61,9 +62,9 @@ object Day02Impl {
   }
 
   def computeRoundPower(round: Round): Int = {
-    val maxRed   = round.getMaxValueForColour(enum.Colour.red)
-    val maxBlue  = round.getMaxValueForColour(enum.Colour.blue)
-    val maxGreen = round.getMaxValueForColour(enum.Colour.green)
+    val maxRed   = round.getMaxValueForColour(Colour.red)
+    val maxBlue  = round.getMaxValueForColour(Colour.blue)
+    val maxGreen = round.getMaxValueForColour(Colour.green)
     maxRed * maxBlue * maxGreen
   }
 

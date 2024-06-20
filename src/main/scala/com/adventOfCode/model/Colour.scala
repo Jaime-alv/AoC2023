@@ -1,4 +1,4 @@
-package com.adventOfCode.enum
+package com.adventOfCode.model
 
 object Colour extends Enumeration {
   type Colour = Value

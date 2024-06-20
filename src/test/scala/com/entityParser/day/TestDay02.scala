@@ -2,9 +2,10 @@ package com.entityParser.day
 
 import org.scalatest.funsuite.AnyFunSuite
 import com.adventOfCode.service.Day02Impl
-import com.adventOfCode.enum.Colour.Colour
+import com.adventOfCode.model.Colour.Colour
 import com.adventOfCode.enum
 import com.adventOfCode.model.Round
+import com.adventOfCode.model.Colour
 
 class TestDay02 extends AnyFunSuite {
   val exampleColourSet: Array[String] = Array(
@@ -61,7 +62,7 @@ class TestDay02 extends AnyFunSuite {
       4,
       1
     )
-    val red: Colour = enum.Colour.red
+    val red: Colour = Colour.red
     assertResult(expected)(Day02Impl.filterByColour(set, red))
   }
 
@@ -80,7 +81,7 @@ class TestDay02 extends AnyFunSuite {
       3,
       6
     )
-    assertResult(expected)(Day02Impl.filterByColour(set, enum.Colour.blue))
+    assertResult(expected)(Day02Impl.filterByColour(set, Colour.blue))
   }
 
   test("Create Round object from string") {
@@ -91,9 +92,9 @@ class TestDay02 extends AnyFunSuite {
   }
 
   test("Max item in round") {
-    assertResult(6)(roundGame.getMaxValueForColour(enum.Colour.blue))
-    assertResult(4)(roundGame.getMaxValueForColour(enum.Colour.red))
-    assertResult(2)(roundGame.getMaxValueForColour(enum.Colour.green))
+    assertResult(6)(roundGame.getMaxValueForColour(Colour.blue))
+    assertResult(4)(roundGame.getMaxValueForColour(Colour.red))
+    assertResult(2)(roundGame.getMaxValueForColour(Colour.green))
   }
 
   test("Compute example rounds") {
