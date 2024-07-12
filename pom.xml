@@ -2,7 +2,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>proyectos.scala</groupId>
+    <groupId>com.github.Jaime-alv.AoC2023</groupId>
     <artifactId>adventOfCode</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
@@ -146,17 +146,11 @@
         </plugins>
     </build>
 
-    <organization>
-        <name>PUE DATA SL</name>
-        <url>https://www.pue.es/</url>
-      </organization>
-
     <developers>
         <developer>
             <id>jaime.alvarez</id>
             <name>Jaime Álvarez</name>
-            <email>jaime.alvarez@pue.es</email>
-            <organization>PUE</organization>
+            <email>jaime.af.git@gmail.com</email>
             <timezone>Europe/Madrid</timezone>
         </developer>
     </developers>
